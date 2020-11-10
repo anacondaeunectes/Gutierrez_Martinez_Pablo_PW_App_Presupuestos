@@ -1,0 +1,6 @@
+<div class="ingreso">
+    <h2 class="ingreso_titulo">Ingresos</h2>
+    <app-ingreso
+     *ngFor="let ingreso of presupuestoService.ingresosService.listadoIngresos"
+      [ingreso]="ingreso"></app-ingreso>
+</div>
