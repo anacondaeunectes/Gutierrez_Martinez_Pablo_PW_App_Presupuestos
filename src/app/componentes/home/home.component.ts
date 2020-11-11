@@ -8,7 +8,7 @@ import { PresupuestoService } from 'src/app/servicios/presupuesto.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public presupuestoService:PresupuestoService ) {}
+  constructor(public presupuestoService:PresupuestoService) {}
 
   ngOnInit(): void {
   }

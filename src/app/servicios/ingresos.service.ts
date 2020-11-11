@@ -11,8 +11,8 @@ import { Ingreso } from '../modelos/ingreso.model';
 export class IngresosService {
 
   listadoIngresos:Ingreso[] = [
-    new Ingreso("Test", 300, 1),
-    new Ingreso("Test 2", 120, 2)
+    new Ingreso("Test", 300), //0
+    new Ingreso("Test 2", 120)//1
   ];
 
   constructor() { }
@@ -22,9 +22,14 @@ export class IngresosService {
   }
   
   deleteIngreso(id:number){
-    var indice = this.listadoIngresos.find(x => x.id == id).id;
-    //Controlar el caso en el que no encuentre nada. ¿No ejevutar el splice?
-    this.listadoIngresos.splice(indice, 1);
+    var indice = this.listadoIngresos.find(x => x.idIngreso == id).idIngreso;
+
+    //Dado el problema que da el metodo splice cuando tan solo queda un elemento en el array, se opta por utilizar el metodo pop en tal caso.
+    if(this.listadoIngresos.length > 1){
+      this.listadoIngresos.splice(indice, 1);
+    }else{
+      this.listadoIngresos.pop();
+    }
   }
 
   calcularIngresoTotal():number{

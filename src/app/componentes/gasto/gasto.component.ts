@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Gasto } from 'src/app/modelos/gasto.model';
+import { EgresosService } from 'src/app/servicios/egresos.service';
 
 @Component({
   selector: 'app-gasto',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GastoComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  gasto:Gasto
+
+  constructor(public egresoService:EgresosService) { }
 
   ngOnInit(): void {
   }

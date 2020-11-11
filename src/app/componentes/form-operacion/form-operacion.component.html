@@ -1,0 +1,26 @@
+<div>
+  <div class="agregar">
+      <div class="agregar_contenedor">
+          <select class="agregar_tipo" (change)="changeSelect()"> <!-- Event binding para cambiar el valor de la propiedad en el TS-->
+              <option value="ing" selected>+</option>
+              <option value="egr">-</option>
+          </select>
+          <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" [(ngModel)]="concepto">
+          <input type="number" class="agregar_valor" placeholder="Valor" [(ngModel)]="valor">
+          <span *ngIf="valorSelect == 'ing'; else valorSelect2"> <!-- Uso de la directiva ngIf para agregar una operacion de ingreso o egreso en función del option seleccionado en la etiqueta anterior "Select"-->
+              <button class="agregar_btn">
+                <i class="ion-ios-checkmark-outline"
+                (click)="addIngreso()"></i>
+            </button>
+          </span>
+
+        <ng-template #valorSelect2>
+            <button class="agregar_btn">
+                <i class="ion-ios-checkmark-outline"
+                (click)="addEgreso()"></i>
+            </button>
+        </ng-template>
+        
+      </div>
+  </div>
+</div>
