@@ -7,7 +7,7 @@
           </select>
           <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" [(ngModel)]="concepto">
           <input type="number" class="agregar_valor" placeholder="Valor" [(ngModel)]="valor">
-          <span *ngIf="valorSelect == 'ing'; else valorSelect2"> <!-- Uso de la directiva ngIf para agregar una operacion de ingreso o egreso en función del option seleccionado en la etiqueta anterior "Select"-->
+          <span *ngIf="valorSelect == 'ing'; else valorSelect2"> <!-- Uso de la directiva ngIf para llamar a addIngreso() o addEgreso() en función del option seleccionado en la etiqueta anterior "Select"-->
               <button class="agregar_btn">
                 <i class="ion-ios-checkmark-outline"
                 (click)="addIngreso()"></i>

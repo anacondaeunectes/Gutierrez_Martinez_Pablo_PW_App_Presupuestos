@@ -7,6 +7,7 @@ import { GastoComponent } from './componentes/gasto/gasto.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { FormOperacionComponent } from './componentes/form-operacion/form-operacion.component';
 import { FormsModule } from '@angular/forms';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     IngresoComponent,
     GastoComponent,
     HomeComponent,
-    FormOperacionComponent
+    FormOperacionComponent,
+    CabeceraComponent
   ],
   imports: [
     BrowserModule,

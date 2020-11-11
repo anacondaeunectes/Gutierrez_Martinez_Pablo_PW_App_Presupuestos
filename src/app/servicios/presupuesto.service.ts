@@ -11,11 +11,13 @@ import { IngresosService } from './ingresos.service';
 })
 export class PresupuestoService {
 
-  presupuestoTotal:number;
+  presupuestoTotal:number = this.actualizarPresupuesto();
 
   constructor(public ingresosService:IngresosService, public gastosService:EgresosService) { }
 
-  actualizarPresupuesto(){
+  actualizarPresupuesto():number{
     this.presupuestoTotal = this.ingresosService.calcularIngresoTotal() - this.gastosService.calcularEgresoTotal();
+
+    return this.presupuestoTotal;
   }
 }

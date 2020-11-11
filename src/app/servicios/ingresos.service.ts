@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Ingreso } from '../modelos/ingreso.model';
+import { PresupuestoService } from './presupuesto.service';
 
 /*
 * Este servicio se encarga de manejar todos los ingresos ademas de ofrecer funcionalidades relacionadas con estos.
@@ -11,30 +12,32 @@ import { Ingreso } from '../modelos/ingreso.model';
 export class IngresosService {
 
   listadoIngresos:Ingreso[] = [
-    new Ingreso("Test", 300), //0
-    new Ingreso("Test 2", 120)//1
+    new Ingreso("Subvención", 300.35),
+    new Ingreso("Venta producto 1", 120.90),
+    new Ingreso("Venta producto 2", 30.00),
+    new Ingreso("Acciones", 180.50),
   ];
 
   constructor() { }
 
   addIngreso(ingreso:Ingreso){
-    this.listadoIngresos.push(ingreso);
+    if (ingreso.concepto != null && ingreso.valor != null) {
+      this.listadoIngresos.push(ingreso);
+    }
   }
   
   deleteIngreso(id:number){
-    var indice = this.listadoIngresos.find(x => x.idIngreso == id).idIngreso;
+    var indice = this.listadoIngresos.indexOf(this.listadoIngresos.find(x => x.idIngreso == id));
 
-    //Dado el problema que da el metodo splice cuando tan solo queda un elemento en el array, se opta por utilizar el metodo pop en tal caso.
-    if(this.listadoIngresos.length > 1){
-      this.listadoIngresos.splice(indice, 1);
-    }else{
-      this.listadoIngresos.pop();
-    }
+    this.listadoIngresos.splice(indice, 1);
   }
 
   calcularIngresoTotal():number{
     var total:number;
-    this.listadoIngresos.forEach(x => total += x.valor);
+    // this.listadoIngresos.forEach(x => total += x.valor);
+
+    total = this.listadoIngresos.reduce( (acc, curVal) => acc + curVal.valor, 0);
+
     return total;
   }
 }

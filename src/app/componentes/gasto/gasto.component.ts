@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Gasto } from 'src/app/modelos/gasto.model';
-import { EgresosService } from 'src/app/servicios/egresos.service';
+import { PresupuestoService } from 'src/app/servicios/presupuesto.service';
 
 @Component({
   selector: 'app-gasto',
@@ -12,7 +12,7 @@ export class GastoComponent implements OnInit {
   @Input()
   gasto:Gasto
 
-  constructor(public egresoService:EgresosService) { }
+  constructor(public presupuestoServicio:PresupuestoService) { }
 
   ngOnInit(): void {
   }
